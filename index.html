@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Hack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cyan: {
+                neon: '#00CBD9',
+                light: '#AEECF1',
+              },
+              magenta: {
+                neon: '#FC2C54',
+              },
+              yellow: {
+                gold: '#FFD700',
+              },
+              dark: {
+                bg: '#050505',
+                surface: '#141414',
+                deep: '#050505'
+              },
+              // Cores solicitadas
+              primary: {
+                main: '#00CBD9',        // Azul ciano principal
+                light: '#AEECF1',       // Azul claro para gradientes
+                dark: '#00A0B0',        // Azul escuro
+              }
+            },
+            fontFamily: {
+              sans: ['"Century Gothic"', 'CenturyGothic', 'AppleGothic', 'sans-serif'],
+              michroma: ['"Michroma"', 'sans-serif'],
+            },
+            backgroundImage: {
+              'shimmer': 'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.4) 50%, transparent 75%)',
+            },
+            animation: {
+              blob: "blob 20s infinite",
+            },
+            keyframes: {
+              blob: {
+                "0%": {
+                  transform: "translate(0px, 0px) scale(1)",
+                },
+                "33%": {
+                  transform: "translate(30px, -50px) scale(1.1)",
+                },
+                "66%": {
+                  transform: "translate(-20px, 20px) scale(0.9)",
+                },
+                "100%": {
+                  transform: "translate(0px, 0px) scale(1)",
+                },
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      /* --- GLOBAL SCROLLBAR HIDING (The "Big" Scroll) --- */
+      html, body {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+      }
+      
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      body::-webkit-scrollbar {
+        display: none;
+        width: 0px;
+        background: transparent;
+      }
+
+      /* --- FORCE HIDE SCROLLBAR BUTTONS GLOBALLY --- */
+      /* This ensures no up/down arrows appear on any scrollbar */
+      ::-webkit-scrollbar-button {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+      }
+
+      /* --- PROFESSIONAL CYAN SCROLLBAR (The "Small" Scroll) --- */
+      .cyan-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: #00CBD9 #050505;
+      }
+
+      .cyan-scrollbar::-webkit-scrollbar {
+        width: 5px; /* Ultra thin and sleek */
+        height: 5px;
+      }
+
+      .cyan-scrollbar::-webkit-scrollbar-track {
+        background: #050505; 
+        border-radius: 4px;
+      }
+
+      .cyan-scrollbar::-webkit-scrollbar-thumb {
+        background: #00CBD9; 
+        border-radius: 10px;
+        border: 1px solid #050505; /* Adds visual separation */
+      }
+
+      .cyan-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #AEECF1; /* Lighter cyan on hover */
+        box-shadow: 0 0 10px rgba(0, 203, 217, 0.8); /* Glow effect */
+      }
+
+      /* Redundant specific check to ensure removal */
+      .cyan-scrollbar::-webkit-scrollbar-button {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+      }
+      
+      .cyan-scrollbar::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+
+      /* Glitch Keyframes - Existing (Hover) */
+      @keyframes glitch-skew {
+        0% { transform: skew(0deg); }
+        20% { transform: skew(-2deg); }
+        40% { transform: skew(2deg); }
+        60% { transform: skew(-1deg); }
+        80% { transform: skew(1deg); }
+        100% { transform: skew(0deg); }
+      }
+      
+      .glitch-effect {
+        animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        animation-play-state: paused;
+      }
+      .glitch-effect:hover {
+        animation-play-state: running;
+      }
+
+      /* NEW: Strong RGB Glitch Entry Animation */
+      @keyframes glitch-intro {
+        0% {
+          text-shadow: 4px 0 #FC2C54, -4px 0 #00CBD9;
+          transform: skew(0deg) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+          text-shadow: 2px 0 #FC2C54, -2px 0 #00CBD9;
+        }
+        20% {
+          text-shadow: -2px 0 #FC2C54, 2px 0 #00CBD9;
+          transform: skew(-10deg) translateX(-5px);
+        }
+        30% {
+          text-shadow: 1px 0 #FC2C54, -1px 0 #00CBD9;
+          transform: skew(5deg) translateX(2px);
+        }
+        40% {
+          text-shadow: 0px 0 transparent, 0px 0 transparent;
+          transform: skew(0deg) translateX(0);
+        }
+        50% {
+          text-shadow: -3px 0 #FC2C54, 3px 0 #00CBD9;
+          transform: skew(-5deg);
+        }
+        60% {
+          text-shadow: 0 0 transparent;
+          transform: skew(0deg);
+        }
+        70% {
+          text-shadow: 2px 0 #FC2C54, -2px 0 #00CBD9;
+           clip-path: inset(10% 0 80% 0);
+        }
+        80% {
+          text-shadow: 0 0 transparent;
+          clip-path: inset(0 0 0 0);
+        }
+        100% {
+          text-shadow: 0 0 transparent;
+          transform: none;
+          opacity: 1;
+        }
+      }
+
+      .animate-glitch-intro {
+        animation: glitch-intro 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        will-change: text-shadow, transform, opacity;
+      }
+
+      /* Noise Texture */
+      .bg-noise {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      }
+
+      /* Shimmer Animation */
+      @keyframes shimmer-slide {
+        0% { transform: translateX(-150%) skewX(-15deg); }
+        100% { transform: translateX(150%) skewX(-15deg); }
+      }
+      .animate-shimmer-sweep {
+        animation: shimmer-slide 3s ease-in-out infinite;
+      }
+
+      /* Marquee Animation */
+      @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 60s linear infinite;
+        white-space: nowrap;
+        will-change: transform;
+      }
+
+      /* Infinite Scroll for Brand Carousel */
+      @keyframes marquee-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-brand-scroll {
+        animation: marquee-scroll 28s linear infinite;
+        will-change: transform;
+      }
+      .animate-brand-scroll:hover {
+        animation-play-state: paused;
+      }
+      
+      /* Animation Delay Utilities */
+      .animation-delay-2000 {
+        animation-delay: 2s;
+      }
+      .animation-delay-4000 {
+        animation-delay: 4s;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "gsap": "https://aistudiocdn.com/gsap@^3.13.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "gsap/": "https://aistudiocdn.com/gsap@^3.13.0/",
+    "@gsap/react": "https://aistudiocdn.com/@gsap/react@^2.1.2",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25"
+  }
+}
+</script>
+</head>
+  <body class="bg-[#050505] text-white overflow-x-hidden antialiased selection:bg-cyan-neon selection:text-black font-sans">
+    <div id="root"></div>
+  </body>
+</html>
