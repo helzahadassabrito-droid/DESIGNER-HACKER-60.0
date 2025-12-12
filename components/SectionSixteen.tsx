@@ -152,7 +152,7 @@ export const SectionSixteen: React.FC<SectionSixteenProps> = ({ scrollerRef }) =
                     Sem riscos por 7 dias. Receba <strong className="text-white border-b border-[#00CBD9]">100% do seu dinheiro de volta</strong> se não gostar.
                 </p>
 
-                <button className="group relative overflow-hidden bg-gradient-to-br from-[#00CBD9] to-[#AEECF1] text-black font-extrabold text-base md:text-lg px-8 py-5 rounded-2xl border-2 border-[#00CBD9]/40 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:scale-105 hover:shadow-[0_0_50px_rgba(0,203,217,0.6)] transition-all duration-300 uppercase tracking-wider font-sans flex items-center justify-center gap-3 whitespace-nowrap">
+                <button onClick={scrollToPlans} className="group relative overflow-hidden bg-gradient-to-br from-[#00CBD9] to-[#AEECF1] text-black font-extrabold text-base md:text-lg px-8 py-5 rounded-2xl border-2 border-[#00CBD9]/40 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:scale-105 hover:shadow-[0_0_50px_rgba(0,203,217,0.6)] transition-all duration-300 uppercase tracking-wider font-sans flex items-center justify-center gap-3 whitespace-nowrap">
                     <div className="absolute inset-0 bg-white/40 w-[200%] animate-shimmer-sweep opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <Rocket className="w-5 h-5 md:w-6 md:h-6" />
                     <span className="relative z-10">QUERO SUBIR DE NÍVEL AGORA</span>

@@ -1,50 +1,68 @@
 
 export const ASSETS = {
-  MENTOR_IMAGE: "https://i.postimg.cc/RFHDz4XY/mentor2.webp",
+  MENTOR_IMAGE: "/mentor2.webp",
   MENTOR_PORTRAIT: "https://i.postimg.cc/tJbPqZKL/Anderson.png",
   HEADLINE_IMAGE: "https://i.postimg.cc/C5ddKrnc/headline.webp",
   NOISE_TEXTURE: "data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E",
-  DEVICES_IMAGE: "https://i.postimg.cc/MKnvJGBV/pc.png",
-  GANDHI_PORTRAIT: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Mahatma-Gandhi-profile.jpg",
+  DEVICES_IMAGE: "/comunity.webp",
+  GANDHI_PORTRAIT: "/Mahatma-Gandhi,_studio,_1931.webp",
   BRAND_LOGOS: [
-    "https://i.postimg.cc/4KszSYZv/1.jpg",
-    "https://i.postimg.cc/QdFqn5hS/2.jpg",
-    "https://i.postimg.cc/6QsCjmHN/3.jpg",
-    "https://i.postimg.cc/BQXDq0kW/4.jpg",
-    "https://i.postimg.cc/D0mWyrCY/5.jpg",
-    "https://i.postimg.cc/SxcnsNrk/6.jpg",
-    "https://i.postimg.cc/66SqfGjf/7.jpg",
-    "https://i.postimg.cc/DSHzSDpW/8.jpg",
-    "https://i.postimg.cc/JzKGJY9X/9.jpg",
-    "https://i.postimg.cc/C5y1Y3qg/10.jpg",
-    "https://i.postimg.cc/vTLQycyD/11.jpg",
-    "https://i.postimg.cc/9QfW3mnb/12.jpg",
-    "https://i.postimg.cc/qR2rczNr/13.jpg",
-    "https://i.postimg.cc/yx7MFnqR/14.jpg"
+    "/1.svg",
+    "/2.svg",
+    "/3.svg",
+    "/4.svg",
+    "/5.svg",
+    "/6.svg",
+    "/7.svg",
+    "/8.svg",
+    "/9.svg",
+    "/10.svg",
+    "/11.svg",
+    "/12.svg",
+    "/13.svg",
+    "/14.svg"
   ],
   MODULE_IMAGES: [
-    "https://i.postimg.cc/qMyVjnhr/Modulo-1-compressed.jpg",
-    "https://i.postimg.cc/Kkh9hjYQ/Modulo-2-compressed.jpg",
-    "https://i.postimg.cc/JGYP4Pnn/Modulo-3-compressed.jpg",
-    "https://i.postimg.cc/pmgCKrzk/Modulo-4-compressed.jpg",
-    "https://i.postimg.cc/f3mKCsvL/Modulo-5-compressed.jpg",
-    "https://i.postimg.cc/BL3CwzhB/Modulo-6-compressed.jpg",
-    "https://i.postimg.cc/r099693L/Modulo-7-compressed.jpg",
-    "https://i.postimg.cc/sfWNrzVx/Modulo-8-compressed.jpg",
-    "https://i.postimg.cc/vD3v335V/Modulo-9-compressed.jpg"
+    "/Módulo 1-compressed.webp",
+    "/Módulo 2-compressed.webp",
+    "/Módulo 3-compressed.webp",
+    "/Módulo 4-compressed.webp",
+    "/Módulo 5-compressed.webp",
+    "/Módulo 6-compressed.webp",
+    "/Módulo 7-compressed.webp",
+    "/Módulo 8-compressed.webp",
+    "/Módulo 9-compressed.webp"
   ],
   CERTIFICATES: {
     FRONT: "https://i.postimg.cc/Pq030y0g/cert-front.jpg", // Placeholder - replace with actual image
     BACK: "https://i.postimg.cc/Pq030y0g/cert-front.jpg"   // Placeholder - replace with actual image
   },
   PORTFOLIO: {
-    // Before/After Slider Assets (Sneaker Sketch vs Render)
-    SKETCH: "https://i.postimg.cc/Kj42yv2h/sneaker-sketch.jpg", // Needs to be black/white line art
-    RENDER: "https://i.postimg.cc/sx0q301J/sneaker-render.jpg", // Needs to be vibrant orange/blue
+    // Before/After Slider Assets
+    SKETCH: "/hhsrrayiqfu4izzea6xx.avif",
+    RENDER: "/u9bzvifp8tamyxiikzsh.avif",
     // Variation Carousel
-    VARIATION_BLACK: "https://i.postimg.cc/sx0q301J/sneaker-render.jpg" // Using render for now, ideally a different colorway
+    VARIATION_BLACK: "/Aprovado.webp"
   },
-  UNIVERSE_GLOBE: "https://i.postimg.cc/9FyCFJkx/Design-sem-nome-(31).png"
+  PORTFOLIO_CAROUSEL: [
+    "/capa-compressed.avif",
+    "/1.avif",
+    "/2-_1_.avif",
+    "/3-_1_.avif"
+  ],
+  PLAN_2019_IMAGE: "/2019.webp",
+  PLAN_CURRENT_IMAGE: "/Atualmente-compressed.webp",
+  FEEDBACK_IMAGES: [
+    "/IMG_8393.webp",
+    "/IMG_8395.webp",
+    "/IMG_8397.webp",
+    "/IMG_8398.webp",
+    "/IMG_8403.webp",
+    "/IMG_8405.webp",
+    "/IMG_8441.webp"
+  ],
+  BACKGROUND_FUNDO: "/Fundo (1).webp",
+  UNIVERSE_GLOBE: "/globo.webp"
 };
 
 export const COLORS = {
@@ -76,27 +94,50 @@ export const MODULES = [
 export const GUESTS = [
   {
     name: "ESTEVAN HANSEN",
-    role: "Especialista em Análise e Inteligência de Mercado",
-    bio: "Mais de 15 anos analisando tendências globais e traduzindo dados complexos em estratégias de design vencedoras.",
-    image: "https://randomuser.me/api/portraits/men/32.jpg" 
+    role: "Inteligência de Mercado Aplicada ao Design",
+    bio: "Especialista em análise de mercado e estratégias de design vencedoras.",
+    image: "/Estevan.webp"
   },
   {
-    name: "CAMILA ROCHA",
-    role: "Especialista em Design Thinking",
-    bio: "Facilitadora de processos criativos que conectam inovação e necessidades reais dos usuários.",
-    image: "https://randomuser.me/api/portraits/women/44.jpg"
+    name: "ROBERTO DOS SANTOS",
+    role: "Design e Carreira",
+    bio: "Especialista em desenvolvimento de carreira no universo do design.",
+    image: "/Roberto.webp"
   },
   {
-    name: "RODRIGO ALVES",
-    role: "Especialista em UX/UI",
-    bio: "Líder de produtos digitais com foco em interfaces intuitivas e alta conversão para grandes startups.",
-    image: "https://randomuser.me/api/portraits/men/86.jpg"
+    name: "BRUNO FEITOSA",
+    role: "Design na Prática",
+    bio: "Aplicação prática de conceitos de design em projetos reais.",
+    image: "/Bruno.webp"
   },
-  // Duplicates for infinite scroll illusion if needed, or unique new ones
   {
-    name: "FERNANDA LIMA",
-    role: "Branding Strategist",
-    bio: "Criadora de marcas icônicas, ensina como construir identidade visual com propósito e longevidade.",
-    image: "https://randomuser.me/api/portraits/women/65.jpg"
+    name: "CIRO RAMBOR",
+    role: "Design e Liderança Criativa",
+    bio: "Liderança e gestão de equipes criativas de alto desempenho.",
+    image: "/Ciro.webp"
+  },
+  {
+    name: "EDUARDO BRAUN",
+    role: "Criatividade, Design e Propósito",
+    bio: "Conexão entre criatividade, design e propósito de vida.",
+    image: "/Eduardo.webp"
+  },
+  {
+    name: "WAGNER METZ",
+    role: "Corpo, Mente e Performance",
+    bio: "Personal Trainer especializado em performance para criativos.",
+    image: "/Wagner Metz - Personal Trainer.webp"
+  },
+  {
+    name: "CARLOS PICAUÍ",
+    role: "Design 3D",
+    bio: "Especialista em modelagem e design 3D de alto nível.",
+    image: "/Carlos.webp"
+  },
+  {
+    name: "VIVIAN LAUBE",
+    role: "Soft Skills e Comunicação Não Violenta",
+    bio: "Especialista em Comunicação Não Violenta e Soft Skills que Constroem Designers de Sucesso.",
+    image: "/Vivian Laube - Especialista em Comunicação Não Violenta e Soft Skills.webp"
   }
 ];

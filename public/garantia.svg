@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="metalGradient" cx="0.4" cy="0.4" r="0.9">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85" />
+      <stop offset="35%" stop-color="#00CBD9" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#0891b2" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#164e63" stop-opacity="0.95" />
+    </radialGradient>
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+      <stop offset="25%" stop-color="#00CBD9" stop-opacity="1" />
+      <stop offset="50%" stop-color="#0891b2" stop-opacity="0.9" />
+      <stop offset="75%" stop-color="#00CBD9" stop-opacity="1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="50%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer border -->
+  <circle cx="150" cy="150" r="145" fill="none" stroke="url(#borderGradient)" stroke-width="8" />
+  <!-- Main badge -->
+  <circle cx="150" cy="150" r="135" fill="url(#metalGradient)" stroke="#00CBD9" stroke-width="2" />
+  <!-- Inner guide -->
+  <circle cx="150" cy="150" r="120" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.3" />
+
+  <!-- Label: GARANTIA -->
+  <text x="150" y="130" text-anchor="middle" fill="url(#textGradient)" style="font-size:28px; font-weight:400;">
+    GARANTIA
+  </text>
+  <!-- Label: 7 DIAS -->
+  <text x="150" y="165" text-anchor="middle" fill="url(#textGradient)" style="font-size:36px; font-weight:400;">
+    7 DIAS
+  </text>
+  <!-- Label: 100% SEGURO -->
+  <text x="150" y="190" text-anchor="middle" fill="url(#textGradient)" style="font-size:14px; font-weight:400;">
+    100% SEGURO
+  </text>
+
+  <!-- Subtle highlight -->
+  <ellipse cx="120" cy="100" rx="30" ry="60" fill="url(#borderGradient)" opacity="0.18" transform="rotate(-30 120 100)" />
+</svg>

@@ -1,0 +1,54 @@
+<svg width="300" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo do smartphone -->
+  <rect width="100%" height="100%" fill="#000000" rx="25"/>
+  
+  <!-- Tela do WhatsApp -->
+  <rect x="10" y="30" width="280" height="440" rx="20" fill="#0b141a"/>
+  
+  <!-- Header do WhatsApp -->
+  <rect x="10" y="30" width="280" height="60" rx="20" fill="#2a3942"/>
+  <circle cx="50" cy="60" r="18" fill="#f39c12"/>
+  <text x="75" y="55" fill="white" font-family="Arial" font-size="14" font-weight="bold">Carlos Mendes</text>
+  <text x="75" y="70" fill="#8696a0" font-family="Arial" font-size="11">visto por último ontem às 22:15</text>
+  
+  <!-- Mensagens -->
+  <!-- Mensagem do cliente -->
+  <rect x="30" y="110" width="220" height="90" rx="15" fill="#005c4b"/>
+  <text x="40" y="125" fill="white" font-family="Arial" font-size="12">Mano, você não vai acreditar!</text>
+  <text x="40" y="140" fill="white" font-family="Arial" font-size="12">Larguei meu emprego e hoje</text>
+  <text x="40" y="155" fill="white" font-family="Arial" font-size="12">trabalho como freelancer</text>
+  <text x="40" y="170" fill="white" font-family="Arial" font-size="12">full time! Ganho 3x mais!</text>
+  <text x="40" y="185" fill="white" font-family="Arial" font-size="12">Seu curso salvou minha vida! 🔥</text>
+  <text x="230" y="195" fill="#8696a0" font-family="Arial" font-size="9">22:10</text>
+  
+  <!-- Mensagem do cliente 2 -->
+  <rect x="30" y="220" width="200" height="60" rx="15" fill="#005c4b"/>
+  <text x="40" y="235" fill="white" font-family="Arial" font-size="12">Tenho clientes fixos agora</text>
+  <text x="40" y="250" fill="white" font-family="Arial" font-size="12">e uma lista de espera!</text>
+  <text x="40" y="265" fill="white" font-family="Arial" font-size="12">Liberdade financeira! 💰</text>
+  <text x="210" y="275" fill="#8696a0" font-family="Arial" font-size="9">22:11</text>
+  
+  <!-- Resposta do Anderson -->
+  <rect x="50" y="300" width="220" height="45" rx="15" fill="#262d31"/>
+  <text x="60" y="315" fill="white" font-family="Arial" font-size="12">Cara, que história incrível!</text>
+  <text x="60" y="330" fill="white" font-family="Arial" font-size="12">Você é inspiração! 🙌✨</text>
+  <text x="250" y="340" fill="#8696a0" font-family="Arial" font-size="9">22:15</text>
+  
+  <!-- Mensagem do cliente 3 -->
+  <rect x="30" y="360" width="210" height="30" rx="15" fill="#005c4b"/>
+  <text x="40" y="375" fill="white" font-family="Arial" font-size="12">Melhor investimento da vida! 🚀⭐</text>
+  <text x="220" y="385" fill="#8696a0" font-family="Arial" font-size="9">22:16</text>
+  
+  <!-- Barra de input -->
+  <rect x="20" y="420" width="260" height="40" rx="20" fill="#2a3942"/>
+  <text x="30" y="440" fill="#8696a0" font-family="Arial" font-size="12">Digite uma mensagem</text>
+  
+  <!-- Efeito de brilho -->
+  <defs>
+    <linearGradient id="glow5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f39c12;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#f39c12;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  <rect x="10" y="30" width="280" height="440" rx="20" fill="url(#glow5)" opacity="0.5"/>
+</svg>
