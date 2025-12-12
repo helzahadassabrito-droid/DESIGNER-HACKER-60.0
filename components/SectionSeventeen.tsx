@@ -194,7 +194,7 @@ export const SectionSeventeen: React.FC<SectionSeventeenProps> = ({ scrollerRef 
                 return (
                   <motion.div
                     key={testimonial.id}
-                    className={`absolute top-1/2 left-1/2 w-[300px] md:w-[360px] cursor-grab active:cursor-grabbing origin-center`}
+                    className={`absolute top-1/2 left-1/2 w-[380px] md:w-[360px] cursor-grab active:cursor-grabbing origin-center`}
                     initial={{
                       x: position > 0 ? '100%' : '-100%',
                       opacity: 0,

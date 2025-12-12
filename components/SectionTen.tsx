@@ -332,7 +332,7 @@ export const SectionTen: React.FC<SectionTenProps> = ({ scrollerRef }) => {
                 </div>
 
                 {/* Description / CTA Area - UPDATED TEXT */}
-                <div className="flex-1 text-center md:text-left">
+                <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
                     <p className="text-white text-xl md:text-2xl font-sans leading-relaxed mb-4">
                         Durante as aulas são feitos e mostrados projetos de diferentes áreas do Design. É uma <br />
                         <span className="text-xl sm:text-2xl md:text-[28px] font-black leading-tight bg-gradient-to-r from-[#00CBD9] to-[#AEECF1] bg-clip-text text-transparent uppercase whitespace-nowrap">verdadeira formação 360°</span>

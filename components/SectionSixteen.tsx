@@ -85,58 +85,16 @@ export const SectionSixteen: React.FC<SectionSixteenProps> = ({ scrollerRef }) =
 
             <div className="relative z-10 w-full max-w-5xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-                {/* --- LEFT: BADGE (STATIC) --- */}
+                {/* --- LEFT: BADGE (IMAGE) --- */}
                 <div ref={badgeRef} className="relative flex-shrink-0 group will-change-transform">
                     <div className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center">
-
-                        {/* Outer Dashed Ring (Static) */}
-                        <div className="absolute inset-0 rounded-full border-[2px] border-dashed border-[#00CBD9]/20"></div>
-
-                        {/* Outer Glow - MOBILE OPTIMIZATION: Hidden on mobile */}
-                        <div className="absolute inset-4 rounded-full bg-[#00CBD9] blur-[50px] opacity-20 group-hover:opacity-30 transition-opacity duration-500 hidden md:block"></div>
-
-                        {/* Metallic Rim - MOBILE OPTIMIZATION: Removed heavy shadow on mobile */}
-                        <div className="absolute inset-4 rounded-full bg-gradient-to-br from-[#e0f7fa] via-[#00CBD9] to-[#006064] p-[3px] shadow-none md:shadow-[0_0_40px_rgba(0,203,217,0.3)]">
-                            <div className="w-full h-full rounded-full bg-[#080f12] relative flex items-center justify-center overflow-hidden">
-
-                                {/* Text Ring (Static SVG) */}
-                                {/* Centered in the black band (radius 42) */}
-                                <div className="absolute inset-0 opacity-90 pointer-events-none">
-                                    <svg viewBox="0 0 100 100" className="w-full h-full p-1">
-                                        <defs>
-                                            {/* 
-                                            Path Radius: 42 (Diameter 84) 
-                                            Centers the text perfectly in the black ring created between 
-                                            the outer rim (100) and inner bubble (~75).
-                                        */}
-                                            <path id="textCircle" d="M 50, 50 m -42, 0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0" />
-                                        </defs>
-                                        {/* ADJUSTED: Reduced spacing and font size to prevent clipping of '1' in '100%' */}
-                                        <text fontSize="4.2" fontWeight="bold" fill="#00CBD9" letterSpacing="1.2">
-                                            {/* startOffset="25%" centers text at the TOP (12 o'clock) for standard circle paths starting at 9 o'clock */}
-                                            <textPath href="#textCircle" startOffset="25%" textAnchor="middle">
-                                                GARANTIA 100% DINHEIRO DE VOLTA & SATISFAÇÃO
-                                            </textPath>
-                                        </text>
-                                    </svg>
-                                </div>
-
-                                {/* Inner Circle Gradient */}
-                                {/* Inset increased to 10 to widen the black band for text */}
-                                {/* MOBILE OPTIMIZATION: Removed backdrop-blur-sm on mobile */}
-                                <div className="absolute inset-10 rounded-full bg-gradient-to-b from-[#00CBD9]/20 to-transparent border border-[#00CBD9]/30 flex flex-col items-center justify-center z-10 md:backdrop-blur-sm shadow-inner">
-                                    {/* Top Gloss */}
-                                    <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-white/15 to-transparent rounded-t-full pointer-events-none"></div>
-
-                                    <span className="text-[#00CBD9] font-bold text-[10px] tracking-[0.2em] uppercase mb-0 drop-shadow-md">Garantia</span>
-                                    <h3 className="text-6xl md:text-7xl font-black text-white italic tracking-tighter leading-[0.8] drop-shadow-[0_4px_0_rgba(0,0,0,0.5)]">
-                                        7
-                                    </h3>
-                                    <span className="text-white font-bold text-xs tracking-[0.3em] uppercase mt-1">Dias</span>
-                                </div>
-
-                            </div>
-                        </div>
+                        <img
+                            src="/garantia.png"
+                            alt="Garantia 7 dias - 100% dinheiro de volta"
+                            className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(0,203,217,0.3)]"
+                            loading="lazy"
+                            decoding="async"
+                        />
                     </div>
                 </div>
 

@@ -17,6 +17,9 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
     const decisionPathRef = useRef<HTMLDivElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
     const footerRef = useRef<HTMLDivElement>(null);
+    // Refs for Plan images scroll zoom
+    const img2019Ref = useRef<HTMLImageElement>(null);
+    const img2025Ref = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
         if (!scrollerRef.current) return;
@@ -50,6 +53,12 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                 }
             );
 
+            // GPU Memory Management helpers for Plan images
+            const set2019WillChange = () => { if (img2019Ref.current) img2019Ref.current.style.willChange = 'transform'; };
+            const remove2019WillChange = () => { if (img2019Ref.current) img2019Ref.current.style.willChange = 'auto'; };
+            const set2025WillChange = () => { if (img2025Ref.current) img2025Ref.current.style.willChange = 'transform'; };
+            const remove2025WillChange = () => { if (img2025Ref.current) img2025Ref.current.style.willChange = 'auto'; };
+
             // DESKTOP: Full Fidelity (Blur, Shadow, Grayscale)
             mm.add("(min-width: 768px)", () => {
                 const tlDecision = gsap.timeline({
@@ -62,8 +71,29 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                     }
                 });
 
-                // Step 1: Reveal 2019
-                tlDecision.fromTo(".img-2019", { filter: "grayscale(100%) opacity(0.5) blur(5px)", scale: 0.9 }, { filter: "grayscale(100%) opacity(1) blur(0px)", scale: 1, duration: 1 });
+                // Step 1: Reveal 2019 with scroll zoom
+                tlDecision.fromTo(".img-2019", { filter: "grayscale(100%) opacity(0.5) blur(5px)", scale: 0.9 }, { filter: "grayscale(100%) opacity(1) blur(0px)", scale: 1.15, duration: 1 });
+
+                // 2019 Image VRAM Management
+                gsap.fromTo(img2019Ref.current,
+                    { scale: 1 },
+                    {
+                        scale: 1.15,
+                        ease: "none",
+                        force3D: true,
+                        scrollTrigger: {
+                            trigger: img2019Ref.current,
+                            scroller: scrollerRef.current,
+                            start: "top 80%",
+                            end: "bottom 20%",
+                            scrub: 1,
+                            onEnter: set2019WillChange,
+                            onEnterBack: set2019WillChange,
+                            onLeave: remove2019WillChange,
+                            onLeaveBack: remove2019WillChange
+                        }
+                    }
+                );
 
                 // Step 2: Red Dots & "Uma Decisão" Text
                 tlDecision.fromTo(".text-decision-pill", { opacity: 0, scale: 0.8, y: 10 }, { opacity: 1, scale: 1, y: 0, duration: 0.5 });
@@ -86,10 +116,31 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                     { opacity: 1, scale: 1, boxShadow: "0 0 15px rgba(0,255,148,0.6)", backgroundColor: "#00FF94", stagger: 0.2, duration: 1 }
                 );
 
-                // Step 5: Reveal 2025
+                // Step 5: Reveal 2025 with scroll zoom
                 tlDecision.fromTo(".img-2025",
                     { filter: "grayscale(100%) opacity(0.5)", scale: 0.9 },
-                    { filter: "grayscale(0%) opacity(1)", scale: 1.05, duration: 1 }
+                    { filter: "grayscale(0%) opacity(1)", scale: 1.15, duration: 1 }
+                );
+
+                // 2025 Image VRAM Management
+                gsap.fromTo(img2025Ref.current,
+                    { scale: 1 },
+                    {
+                        scale: 1.15,
+                        ease: "none",
+                        force3D: true,
+                        scrollTrigger: {
+                            trigger: img2025Ref.current,
+                            scroller: scrollerRef.current,
+                            start: "top 80%",
+                            end: "bottom 20%",
+                            scrub: 1,
+                            onEnter: set2025WillChange,
+                            onEnterBack: set2025WillChange,
+                            onLeave: remove2025WillChange,
+                            onLeaveBack: remove2025WillChange
+                        }
+                    }
                 );
 
                 // Step 6: Reveal Text Block below 2025
@@ -111,10 +162,30 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                     }
                 });
 
-                // Step 1: Reveal 2019 (Opacity/Scale Only)
+                // Step 1: Reveal 2019 with scroll zoom (Opacity/Scale Only)
                 tlDecision.fromTo(".img-2019",
                     { opacity: 0.5, scale: 0.95 },
-                    { opacity: 1, scale: 1, duration: 1 }
+                    { opacity: 1, scale: 1.1, duration: 1 }
+                );
+
+                // 2019 Image VRAM Management (Mobile)
+                gsap.fromTo(img2019Ref.current,
+                    { scale: 1 },
+                    {
+                        scale: 1.1, // Reduced for mobile
+                        ease: "none",
+                        force3D: true,
+                        scrollTrigger: {
+                            trigger: img2019Ref.current,
+                            start: "top 80%",
+                            end: "bottom 20%",
+                            scrub: 1,
+                            onEnter: set2019WillChange,
+                            onEnterBack: set2019WillChange,
+                            onLeave: remove2019WillChange,
+                            onLeaveBack: remove2019WillChange
+                        }
+                    }
                 );
 
                 // Step 2: Red Dots
@@ -140,10 +211,30 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                     { opacity: 1, scale: 1, backgroundColor: "#00FF94", stagger: 0.2, duration: 1 }
                 );
 
-                // Step 5: Reveal 2025
+                // Step 5: Reveal 2025 with scroll zoom
                 tlDecision.fromTo(".img-2025",
                     { opacity: 0.5, scale: 0.9 },
-                    { opacity: 1, scale: 1.05, duration: 1 }
+                    { opacity: 1, scale: 1.1, duration: 1 }
+                );
+
+                // 2025 Image VRAM Management (Mobile)
+                gsap.fromTo(img2025Ref.current,
+                    { scale: 1 },
+                    {
+                        scale: 1.1, // Reduced for mobile
+                        ease: "none",
+                        force3D: true,
+                        scrollTrigger: {
+                            trigger: img2025Ref.current,
+                            start: "top 80%",
+                            end: "bottom 20%",
+                            scrub: 1,
+                            onEnter: set2025WillChange,
+                            onEnterBack: set2025WillChange,
+                            onLeave: remove2025WillChange,
+                            onLeaveBack: remove2025WillChange
+                        }
+                    }
                 );
 
                 // Step 6: Text Block
@@ -267,7 +358,7 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                             {/* NODE 1: 2019 (The Past) */}
                             <div className="relative z-10 img-2019 mb-3">
                                 <div className="relative w-[320px] max-w-[90vw] h-[320px] max-h-[90vw] md:w-[200px] md:h-[200px] rounded-3xl overflow-hidden border-2 border-white/10 shadow-2xl bg-black">
-                                    <img src={ASSETS.PLAN_2019_IMAGE} loading="lazy" decoding="async" alt="2019" className="w-full h-full object-cover" />
+                                    <img ref={img2019Ref} src={ASSETS.PLAN_2019_IMAGE} loading="lazy" decoding="async" alt="2019" className="w-full h-full object-cover" />
                                     <div className="absolute inset-0 bg-black/50"></div>
                                     <div className="absolute bottom-4 right-4 text-white/50 font-black text-3xl md:text-2xl">2019</div>
                                 </div>
@@ -325,7 +416,7 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                             {/* NODE 2: Atualmente (The Future) */}
                             <div className="relative z-10 img-2025 mt-3 group">
                                 <div className="relative w-[320px] max-w-[90vw] h-[320px] max-h-[90vw] md:w-[220px] md:h-[220px] rounded-3xl overflow-hidden border-[3px] border-[#00FF94] shadow-[0_0_30px_rgba(0,255,148,0.2)] md:shadow-[0_0_60px_rgba(0,255,148,0.3)] bg-black">
-                                    <img src={ASSETS.PLAN_CURRENT_IMAGE} loading="lazy" decoding="async" alt="Atualmente" className="w-full h-full object-cover" />
+                                    <img ref={img2025Ref} src={ASSETS.PLAN_CURRENT_IMAGE} loading="lazy" decoding="async" alt="Atualmente" className="w-full h-full object-cover" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#00FF94]/40 via-transparent to-transparent mix-blend-overlay"></div>
                                     <div className="absolute bottom-4 right-4 text-[#00FF94] font-black text-3xl md:text-2xl drop-shadow-md">Atualmente</div>
                                 </div>

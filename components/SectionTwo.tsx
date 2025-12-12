@@ -328,6 +328,10 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
             }
 
             // SECTION 5 SCROLL ANIMATION (MENTOR ZOOM & PILLS)
+            // GPU Memory Management helpers
+            const setMentorWillChange = () => { if (mentorPortraitRef.current) mentorPortraitRef.current.style.willChange = 'transform'; };
+            const removeMentorWillChange = () => { if (mentorPortraitRef.current) mentorPortraitRef.current.style.willChange = 'auto'; };
+
             if (instructorSectionRef.current && mentorPortraitRef.current && pillsContainerRef.current && scrollContainerRef.current) {
 
                 // Desktop: Cinematic Zoom + Blur
@@ -342,19 +346,24 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
                             boxShadow: '0 0 0px rgba(0, 203, 217, 0)'
                         },
                         {
-                            scale: 1,
+                            scale: 1.15,
                             opacity: 1,
                             filter: 'blur(0px)',
                             y: 0,
                             rotation: 0,
                             boxShadow: '0 0 40px rgba(0, 203, 217, 0.4)',
                             ease: "power4.out",
+                            force3D: true,
                             scrollTrigger: {
                                 trigger: instructorSectionRef.current,
                                 scroller: scrollContainerRef.current,
                                 start: "top 80%",
                                 end: "center 35%",
-                                scrub: 2.5,
+                                scrub: 1,
+                                onEnter: setMentorWillChange,
+                                onEnterBack: setMentorWillChange,
+                                onLeave: removeMentorWillChange,
+                                onLeaveBack: removeMentorWillChange
                             }
                         }
                     );
@@ -385,27 +394,29 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
                     );
                 });
 
-                // Mobile: Optimized Zoom (No Blur, Smooth Scale Scrub)
+                // Mobile: Optimized Zoom (No Blur, Smooth Scale Scrub with VRAM Management)
                 mm.add("(max-width: 767px)", () => {
-                    // Zoom Effect on Photo
+                    // Zoom Effect on Photo - Reduced scale for mobile performance
                     gsap.fromTo(mentorPortraitRef.current,
                         {
-                            scale: 0.6, // Start zoomed out
+                            scale: 0.9, // Start slightly zoomed out
                             opacity: 0,
-                            y: 30, // Slight movement
                             transformOrigin: "center center"
                         },
                         {
-                            scale: 1, // Zoom in to normal
+                            scale: 1.1, // Reduced zoom factor for mobile (1.1 vs 1.15)
                             opacity: 1,
-                            y: 0,
-                            ease: "power1.out",
+                            ease: "none",
+                            force3D: true,
                             scrollTrigger: {
-                                trigger: instructorSectionRef.current,
-                                scroller: scrollContainerRef.current,
-                                start: "top 85%", // Start when section hits bottom of viewport roughly
-                                end: "center 45%", // Finish when centered
-                                scrub: 1, // Smooth scrubbing linked to scroll
+                                trigger: mentorPortraitRef.current,
+                                start: "top 80%",
+                                end: "bottom 20%",
+                                scrub: 1,
+                                onEnter: setMentorWillChange,
+                                onEnterBack: setMentorWillChange,
+                                onLeave: removeMentorWillChange,
+                                onLeaveBack: removeMentorWillChange
                             }
                         }
                     );
@@ -789,16 +800,16 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
 
                             {/* Left: Mentor Hero Image */}
                             <div className="flex justify-center lg:justify-end order-1">
-                                <div className="relative w-full max-w-[300px] md:max-w-[360px] lg:max-w-[380px]">
-                                    {/* Zoom Target */}
+                                {/* Overflow hidden wrapper for zoom effect masking */}
+                                <div className="relative w-full max-w-[300px] md:max-w-[360px] lg:max-w-[380px] overflow-hidden rounded-[24px]">
+                                    {/* Zoom Target - will-change managed dynamically by GSAP */}
                                     <img
                                         ref={mentorPortraitRef}
                                         src={ASSETS.MENTOR_PORTRAIT}
                                         alt="Anderson Ramon Meisterlin"
-                                        className="w-full h-auto rounded-[24px] border-[3px] border-[#00CBD9]/50 object-cover"
+                                        className="w-full h-full object-cover border-[3px] border-[#00CBD9]/50"
                                         loading="lazy"
                                         decoding="async"
-                                        style={{ willChange: 'transform, opacity' }} // Performance Optimization for Zoom
                                     />
                                 </div>
                             </div>
