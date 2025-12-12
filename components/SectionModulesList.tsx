@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, PlayCircle, Package, MonitorPlay, Rocket } from 'lucide-react';
+import { scrollToPlans } from '../utils/scroll';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -158,32 +159,32 @@ export const SectionModulesList: React.FC<SectionModulesListProps> = ({ scroller
       // --- List Entrance (Optimized for Mobile) ---
       // DESKTOP: Full stagger
       mm.add("(min-width: 768px)", () => {
-          gsap.fromTo(listRef.current?.children || [],
-            { y: 30, opacity: 0 },
-            {
-              y: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: "power2.out",
-              scrollTrigger: {
-                trigger: listRef.current,
-                scroller: scrollerRef.current,
-                start: "top 80%"
-              }
+        gsap.fromTo(listRef.current?.children || [],
+          { y: 30, opacity: 0 },
+          {
+            y: 0, opacity: 1, duration: 0.6, stagger: 0.05, ease: "power2.out",
+            scrollTrigger: {
+              trigger: listRef.current,
+              scroller: scrollerRef.current,
+              start: "top 80%"
             }
-          );
+          }
+        );
       });
 
       // MOBILE: Faster stagger, less movement distance to reduce layout cost
       mm.add("(max-width: 767px)", () => {
-          gsap.fromTo(listRef.current?.children || [],
-            { y: 15, opacity: 0 },
-            {
-              y: 0, opacity: 1, duration: 0.5, stagger: 0.02, ease: "power2.out",
-              scrollTrigger: {
-                trigger: listRef.current,
-                scroller: scrollerRef.current,
-                start: "top 85%"
-              }
+        gsap.fromTo(listRef.current?.children || [],
+          { y: 15, opacity: 0 },
+          {
+            y: 0, opacity: 1, duration: 0.5, stagger: 0.02, ease: "power2.out",
+            scrollTrigger: {
+              trigger: listRef.current,
+              scroller: scrollerRef.current,
+              start: "top 85%"
             }
-          );
+          }
+        );
       });
 
       // Stats Entrance
@@ -203,125 +204,125 @@ export const SectionModulesList: React.FC<SectionModulesListProps> = ({ scroller
 
       // CTA Entrance
       if (ctaRef.current) {
-         gsap.fromTo(ctaRef.current,
-            { y: 30, opacity: 0 },
-            {
-               y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out",
-               scrollTrigger: {
-                  trigger: ctaRef.current,
-                  scroller: scrollerRef.current,
-                  start: "top 90%"
-               }
+        gsap.fromTo(ctaRef.current,
+          { y: 30, opacity: 0 },
+          {
+            y: 0, opacity: 1, duration: 0.8, delay: 0.2, ease: "power2.out",
+            scrollTrigger: {
+              trigger: ctaRef.current,
+              scroller: scrollerRef.current,
+              start: "top 90%"
             }
-         );
+          }
+        );
       }
-      
+
     }, containerRef);
 
     return () => ctx.revert();
   }, [scrollerRef]);
 
   return (
-    <section 
-        ref={containerRef}
-        className="relative w-full py-16 md:py-24 bg-[#0A0A0A] overflow-hidden flex flex-col items-center"
+    <section
+      ref={containerRef}
+      className="relative w-full py-16 md:py-24 bg-[#0A0A0A] overflow-hidden flex flex-col items-center"
     >
-        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col items-center">
-            
-            {/* Accordion List - Grid Layout on Desktop */}
-            <div 
-                ref={listRef} 
-                className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-start mt-4 will-change-transform"
-            >
-                {MODULE_DETAILS.map((module, index) => {
-                    const isOpen = openIndex === index;
-                    return (
-                        <div 
-                            key={index}
-                            onClick={() => toggleModule(index)}
-                            className={`
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col items-center">
+
+        {/* Accordion List - Grid Layout on Desktop */}
+        <div
+          ref={listRef}
+          className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-start mt-4 will-change-transform"
+        >
+          {MODULE_DETAILS.map((module, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <div
+                key={index}
+                onClick={() => toggleModule(index)}
+                className={`
                                 group cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 border h-fit
-                                ${isOpen 
-                                    ? 'bg-[#05121d] border-[#00CBD9] md:shadow-[0_0_20px_rgba(0,203,217,0.2)]' 
-                                    : 'bg-[#05121d] border-[#00CBD9]/30 hover:border-[#00CBD9] md:hover:shadow-[0_0_15px_rgba(0,203,217,0.1)]'
-                                }
+                                ${isOpen
+                    ? 'bg-[#05121d] border-[#00CBD9] md:shadow-[0_0_20px_rgba(0,203,217,0.2)]'
+                    : 'bg-[#05121d] border-[#00CBD9]/30 hover:border-[#00CBD9] md:hover:shadow-[0_0_15px_rgba(0,203,217,0.1)]'
+                  }
                             `}
-                        >
-                            {/* Card Header */}
-                            <div className="p-4 md:p-6 flex items-center justify-between gap-4">
-                                <h3 className={`text-base md:text-lg lg:text-xl font-bold font-sans transition-colors ${isOpen ? 'text-white' : 'text-gray-200 group-hover:text-white'}`}>
-                                    {module.title}
-                                </h3>
-                                
-                                {/* Plus Icon */}
-                                <div className={`
+              >
+                {/* Card Header */}
+                <div className="p-4 md:p-6 flex items-center justify-between gap-4">
+                  <h3 className={`text-base md:text-lg lg:text-xl font-bold font-sans transition-colors ${isOpen ? 'text-white' : 'text-gray-200 group-hover:text-white'}`}>
+                    {module.title}
+                  </h3>
+
+                  {/* Plus Icon */}
+                  <div className={`
                                     w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shrink-0 transition-all duration-300
-                                    ${isOpen 
-                                        ? 'bg-[#00CBD9] text-black rotate-180 md:shadow-[0_0_15px_#00CBD9]' 
-                                        : 'bg-[#00CBD9]/10 text-[#00CBD9] group-hover:bg-[#00CBD9] group-hover:text-black'
-                                    }
+                                    ${isOpen
+                      ? 'bg-[#00CBD9] text-black rotate-180 md:shadow-[0_0_15px_#00CBD9]'
+                      : 'bg-[#00CBD9]/10 text-[#00CBD9] group-hover:bg-[#00CBD9] group-hover:text-black'
+                    }
                                 `}>
-                                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
-                                </div>
-                            </div>
+                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                  </div>
+                </div>
 
-                            {/* Dropdown Content */}
-                            <AnimatePresence>
-                                {isOpen && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    >
-                                        <div className="px-4 pb-6 md:px-8 md:pb-8">
-                                            <div className="h-[1px] w-full bg-[#00CBD9]/20 mb-4"></div>
-                                            <ul className="grid grid-cols-1 gap-3">
-                                                {module.lessons.map((lesson, idx) => (
-                                                    <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm md:text-base font-sans">
-                                                        <PlayCircle size={14} className="text-[#00CBD9] shrink-0 mt-1" />
-                                                        <span className="leading-relaxed">{lesson}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    );
-                })}
-            </div>
-
-            {/* Stats Section */}
-            <div ref={statsRef} className="flex flex-col md:flex-row gap-4 md:gap-8 mt-12 md:mt-16 w-full justify-center">
-                <StatPill icon={<Package size={20} />} text="+ 10 CURSOS EM 1" />
-                <StatPill icon={<MonitorPlay size={20} />} text="+ 70 AULAS" />
-                <StatPill icon={<PlayCircle size={20} />} text="+ 100 HORAS" />
-            </div>
-
-            {/* New CTA Button */}
-            <div ref={ctaRef} className="mt-12 md:mt-16 w-full flex justify-center">
-                 <button onClick={scrollToPlans} className="group relative overflow-hidden bg-gradient-to-br from-[#00CBD9] to-[#AEECF1] text-black font-extrabold text-sm md:text-lg px-6 py-4 md:px-8 md:py-5 rounded-2xl border-2 border-[#00CBD9]/40 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:scale-105 hover:shadow-[0_0_50px_rgba(0,203,217,0.6)] transition-all duration-300 uppercase tracking-wider font-sans flex items-center justify-center gap-2 md:gap-3 whitespace-nowrap w-full md:w-auto">
-                        <div className="absolute inset-0 bg-white/40 w-[200%] animate-shimmer-sweep opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <Rocket className="w-6 h-6 md:w-6 md:h-6 shrink-0" />
-                        <span className="relative z-10">QUERO SUBIR DE NÍVEL AGORA</span>
-                </button>
-            </div>
-
+                {/* Dropdown Content */}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className="px-4 pb-6 md:px-8 md:pb-8">
+                        <div className="h-[1px] w-full bg-[#00CBD9]/20 mb-4"></div>
+                        <ul className="grid grid-cols-1 gap-3">
+                          {module.lessons.map((lesson, idx) => (
+                            <li key={idx} className="flex items-start gap-3 text-gray-400 text-sm md:text-base font-sans">
+                              <PlayCircle size={14} className="text-[#00CBD9] shrink-0 mt-1" />
+                              <span className="leading-relaxed">{lesson}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
+
+        {/* Stats Section */}
+        <div ref={statsRef} className="flex flex-col md:flex-row gap-4 md:gap-8 mt-12 md:mt-16 w-full justify-center">
+          <StatPill icon={<Package size={20} />} text="+ 10 CURSOS EM 1" />
+          <StatPill icon={<MonitorPlay size={20} />} text="+ 70 AULAS" />
+          <StatPill icon={<PlayCircle size={20} />} text="+ 100 HORAS" />
+        </div>
+
+        {/* New CTA Button */}
+        <div ref={ctaRef} className="mt-12 md:mt-16 w-full flex justify-center">
+          <button onClick={scrollToPlans} className="group relative overflow-hidden bg-gradient-to-br from-[#00CBD9] to-[#AEECF1] text-black font-extrabold text-sm md:text-lg px-6 py-4 md:px-8 md:py-5 rounded-2xl border-2 border-[#00CBD9]/40 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:scale-105 hover:shadow-[0_0_50px_rgba(0,203,217,0.6)] transition-all duration-300 uppercase tracking-wider font-sans flex items-center justify-center gap-2 md:gap-3 whitespace-nowrap w-full md:w-auto">
+            <div className="absolute inset-0 bg-white/40 w-[200%] animate-shimmer-sweep opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <Rocket className="w-6 h-6 md:w-6 md:h-6 shrink-0" />
+            <span className="relative z-10">QUERO SUBIR DE NÍVEL AGORA</span>
+          </button>
+        </div>
+
+      </div>
     </section>
   );
 };
 
 // Stat Pill Component (Mobile Optimized: Removed heavy shadows on mobile)
 const StatPill = ({ icon, text }: { icon: React.ReactNode, text: string }) => (
-    <div className="flex items-center gap-3 px-8 py-4 rounded-2xl border border-[#00CBD9] bg-[#05121d] md:shadow-[0_0_15px_rgba(0,203,217,0.15)] min-w-[220px] justify-center md:hover:shadow-[0_0_25px_rgba(0,203,217,0.3)] transition-all duration-300">
-        <div className="text-[#00CBD9]">
-            {icon}
-        </div>
-        <span className="text-white font-bold text-lg font-sans tracking-wide">
-            {text}
-        </span>
+  <div className="flex items-center gap-3 px-8 py-4 rounded-2xl border border-[#00CBD9] bg-[#05121d] md:shadow-[0_0_15px_rgba(0,203,217,0.15)] min-w-[220px] justify-center md:hover:shadow-[0_0_25px_rgba(0,203,217,0.3)] transition-all duration-300">
+    <div className="text-[#00CBD9]">
+      {icon}
     </div>
+    <span className="text-white font-bold text-lg font-sans tracking-wide">
+      {text}
+    </span>
+  </div>
 );

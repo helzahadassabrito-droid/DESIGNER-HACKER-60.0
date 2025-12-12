@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight, Rocket, Quote, MessageCircle } from 'lucide-react';
 import { ASSETS } from '../constants';
+import { scrollToPlans } from '../utils/scroll';
 
 gsap.registerPlugin(ScrollTrigger);
 

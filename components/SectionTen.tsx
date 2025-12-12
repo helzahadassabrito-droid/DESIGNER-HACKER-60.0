@@ -1,9 +1,10 @@
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Rocket, ChevronLeft, ChevronRight, GripVertical } from 'lucide-react';
 import { ASSETS } from '../constants';
+import { scrollToPlans } from '../utils/scroll';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,10 +21,41 @@ export const SectionTen: React.FC<SectionTenProps> = ({ scrollerRef }) => {
     // --- Slider Logic ---
     const [sliderPosition, setSliderPosition] = useState(50); // Percentage 0-100
     const [isDragging, setIsDragging] = useState(false);
+    const [imagesLoaded, setImagesLoaded] = useState(false);
 
     // --- Portfolio Carousel Logic ---
     const [carouselIndex, setCarouselIndex] = useState(0);
     const portfolioImages = ASSETS.PORTFOLIO_CAROUSEL || [ASSETS.PORTFOLIO.RENDER];
+
+    // Memoize next image index for preloading
+    const nextImageIndex = useMemo(() => (carouselIndex + 1) % portfolioImages.length, [carouselIndex, portfolioImages.length]);
+
+    // Preload before/after and carousel images on mount
+    useEffect(() => {
+        const imagesToPreload = [
+            ASSETS.PORTFOLIO.SKETCH,
+            ASSETS.PORTFOLIO.RENDER,
+            ...portfolioImages
+        ];
+
+        let loadedCount = 0;
+        imagesToPreload.forEach((src) => {
+            const img = new Image();
+            img.onload = () => {
+                loadedCount++;
+                if (loadedCount === imagesToPreload.length) {
+                    setImagesLoaded(true);
+                }
+            };
+            img.src = src;
+        });
+    }, [portfolioImages]);
+
+    // Preload next carousel image for smooth transitions
+    useEffect(() => {
+        const nextImg = new Image();
+        nextImg.src = portfolioImages[nextImageIndex];
+    }, [nextImageIndex, portfolioImages]);
 
     const nextPortfolioImage = () => {
         setCarouselIndex((prev) => (prev + 1) % portfolioImages.length);
@@ -183,11 +215,13 @@ export const SectionTen: React.FC<SectionTenProps> = ({ scrollerRef }) => {
                     <img
                         src={ASSETS.PORTFOLIO.RENDER}
                         alt="Render Final"
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-cover object-center will-change-auto"
                         draggable={false}
                         loading="eager"
                         fetchpriority="high"
                         decoding="async"
+                        width={1000}
+                        height={562}
                     />
                     {/* 
                     MOBILE OPTIMIZATION:
@@ -209,13 +243,15 @@ export const SectionTen: React.FC<SectionTenProps> = ({ scrollerRef }) => {
                     <img
                         src={ASSETS.PORTFOLIO.SKETCH}
                         alt="Sketch Concept"
-                        className="absolute top-0 left-0 max-w-none h-full object-cover object-center"
+                        className="absolute top-0 left-0 max-w-none h-full object-cover object-center will-change-auto"
                         // Important: Width must match container to align images perfectly
                         style={{ width: sliderRef.current?.getBoundingClientRect().width || '100%' }}
                         draggable={false}
                         loading="eager"
                         fetchpriority="high"
                         decoding="async"
+                        width={1000}
+                        height={562}
                     />
                     {/* Label removed as requested */}
                 </div>
@@ -245,8 +281,10 @@ export const SectionTen: React.FC<SectionTenProps> = ({ scrollerRef }) => {
             {/* --- SECONDARY SHOWCASE (CAROUSEL) --- */}
             <div ref={showcaseRef} className="mt-12 md:mt-16 w-full max-w-[1000px] flex flex-col md:flex-row items-center gap-8 md:gap-12">
 
-                {/* Showcast Card (Vitrine) */}
-                <div className="relative w-full md:w-[65%] aspect-[16/10] bg-[#F5F5F5] rounded-xl overflow-hidden shadow-lg md:shadow-2xl group border border-white/10">
+                {/* Showcast Card (Vitrine) - Optimized for mobile */}
+                <div
+                    className="relative w-full md:w-[65%] aspect-[16/10] bg-[#F5F5F5] rounded-xl overflow-hidden shadow-lg md:shadow-2xl group border border-white/10"
+                >
 
                     {/* Dots (Top Right) */}
                     <div className="absolute top-4 right-4 flex gap-2 z-10">
@@ -259,14 +297,18 @@ export const SectionTen: React.FC<SectionTenProps> = ({ scrollerRef }) => {
                         ))}
                     </div>
 
-                    {/* Product Image */}
+                    {/* Product Image - Optimized carousel */}
                     <div className="w-full h-full flex items-center justify-center p-4">
                         <img
+                            key={carouselIndex}
                             src={portfolioImages[carouselIndex]}
                             alt={`Portfolio ${carouselIndex + 1}`}
-                            className="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105 will-change-transform"
-                            loading="lazy"
+                            className="w-full h-full object-cover rounded-lg transition-opacity duration-300 md:transition-transform md:duration-500 md:group-hover:scale-105"
+                            loading="eager"
                             decoding="async"
+                            fetchpriority="high"
+                            width={650}
+                            height={406}
                         />
                     </div>
 

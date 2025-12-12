@@ -40,14 +40,15 @@ export const ASSETS = {
   PORTFOLIO: {
     // Before/After Slider Assets
     SKETCH: "/hhsrrayiqfu4izzea6xx.avif",
-    RENDER: "/u9bzvifp8tamyxiikzsh.avif",
+    RENDER: "/ImageToStl.com_Aprovado.avif",
     // Variation Carousel
     VARIATION_BLACK: "/Aprovado.webp"
   },
   PORTFOLIO_CAROUSEL: [
-    "/capa-compressed.avif",
+    "/PORTCARROSL1.avif",
     "/1.avif",
     "/2-_1_.avif",
+    "/3.avif",
     "/3-_1_.avif"
   ],
   PLAN_2019_IMAGE: "/2019.webp",

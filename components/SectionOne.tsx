@@ -101,16 +101,23 @@ export const SectionOne: React.FC = () => {
     <div ref={containerRef} className="section-one absolute inset-0 w-full h-full flex flex-col items-center justify-center overflow-hidden z-10 bg-[#0A0A0A]">
 
       {/* Background Stack */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        {/* 1. Main Image */}
+      <div className="absolute inset-0 w-full h-full z-0 bg-black">
+        {/* Mobile Background Image */}
         <img
-          src={ASSETS.MENTOR_IMAGE}
+          src="/capamobile.avif"
           alt="Background"
-          className="w-full h-full object-cover opacity-80 mix-blend-luminosity"
-          loading="eager" // Hero image should load fast
+          className="w-full h-full object-cover md:hidden"
+          loading="eager"
           decoding="async"
-          width="100%"
-          height="100%"
+        />
+
+        {/* Desktop Background Image */}
+        <img
+          src="/capadesktop.avif"
+          alt="Background"
+          className="w-full h-full object-cover hidden md:block"
+          loading="eager"
+          decoding="async"
         />
 
         {/* 2. Blue Fog Gradient Overlay - SIMPLIFIED FOR MOBILE */}
