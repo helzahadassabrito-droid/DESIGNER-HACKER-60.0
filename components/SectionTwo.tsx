@@ -218,20 +218,13 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
     useGSAP(() => {
         if (isActive) {
 
-            const isMobile = window.matchMedia("(max-width: 767px)").matches;
-
-            // --- MOBILE: SMOOTH FADE IN ---
-            // Ensure elements animate from opacity-0 (CSS) to 1.
-            // Using .to() prevents any 'jumping' from initial state.
-            // --- MOBILE: NATIVE VISIBILITY ---
-            // Elements are visible by default because 'md:invisible' only applies to desktop.
-            // We do absolutely nothing here to ensure 100% stability.
-            if (isMobile) {
-                return;
-            }
-
-            // --- DESKTOP: FULL ENTRY ANIMATIONS ---
+            // --- MATCHMEDIA INSTANCES FOR RESPONSIVE ANIMATIONS ---
+            // Declared at the start so all scroll animations can use them
             const mm = gsap.matchMedia();
+            const mm2 = gsap.matchMedia();
+
+            // --- DESKTOP ONLY: ENTRY TIMELINE ANIMATIONS ---
+            // Mobile uses CSS visibility (md:invisible) - no JS needed for entry
             mm.add("(min-width: 768px)", () => {
                 const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
@@ -269,8 +262,6 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
                         { autoAlpha: 1, y: 0, scale: 1, duration: 0.8, ease: "power2.out" }
                     );
             });
-
-            const mm2 = gsap.matchMedia();
 
             // SECTION 4 SCROLL ANIMATION (SHARP TECH REVEAL)
             if (devicesWrapperRef.current && problemSectionRef.current && scrollContainerRef.current) {
@@ -399,17 +390,16 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
                     // Zoom Effect on Photo - Reduced scale for mobile performance
                     gsap.fromTo(mentorPortraitRef.current,
                         {
-                            scale: 0.9, // Start slightly zoomed out
-                            opacity: 0,
+                            scale: 1, // Start at normal size - zoom IN on scroll
                             transformOrigin: "center center"
                         },
                         {
                             scale: 1.1, // Reduced zoom factor for mobile (1.1 vs 1.15)
-                            opacity: 1,
                             ease: "none",
                             force3D: true,
                             scrollTrigger: {
                                 trigger: mentorPortraitRef.current,
+                                scroller: scrollContainerRef.current, // CRITICAL: Must specify custom scroller
                                 start: "top 80%",
                                 end: "bottom 20%",
                                 scrub: 1,

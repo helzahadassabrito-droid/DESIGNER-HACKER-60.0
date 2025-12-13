@@ -92,16 +92,15 @@ export const SectionEleven: React.FC<SectionElevenProps> = ({ scrollerRef }) => 
         // Entrance animation
         gsap.fromTo(globeWrapperRef.current,
           {
-            opacity: 0,
-            scale: 0.85,
+            scale: 1, // Start at normal size - zoom IN on scroll
           },
           {
-            opacity: 1,
             scale: 1.1, // Reduced zoom factor for mobile
             ease: "none",
             force3D: true,
             scrollTrigger: {
               trigger: containerRef.current,
+              scroller: scrollerRef.current, // CRITICAL: Must specify custom scroller
               start: "top 75%",
               end: "bottom 25%",
               scrub: 1,

@@ -175,7 +175,7 @@ export const SectionSeventeen: React.FC<SectionSeventeenProps> = ({ scrollerRef 
         {/* --- CAROUSEL --- */}
         <div
           ref={carouselRef}
-          className="relative w-full max-w-6xl h-[500px] md:h-[600px] flex items-center justify-center perspective-1000"
+          className="relative w-full max-w-6xl h-[620px] md:h-[600px] flex items-center justify-center perspective-1000"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
@@ -194,7 +194,7 @@ export const SectionSeventeen: React.FC<SectionSeventeenProps> = ({ scrollerRef 
                 return (
                   <motion.div
                     key={testimonial.id}
-                    className={`absolute top-1/2 left-1/2 w-[380px] md:w-[360px] cursor-grab active:cursor-grabbing origin-center`}
+                    className={`absolute top-1/2 left-1/2 w-[85vw] max-w-[340px] md:w-[360px] cursor-grab active:cursor-grabbing origin-center`}
                     initial={{
                       x: position > 0 ? '100%' : '-100%',
                       opacity: 0,
@@ -279,7 +279,7 @@ interface FeedbackImageCardProps {
 const WhatsAppCard: React.FC<FeedbackImageCardProps> = ({ data, isActive }) => {
   return (
     <div className={`
-            relative w-full aspect-[9/16] rounded-[32px] overflow-hidden border transition-all duration-500
+            relative w-full aspect-[3/4] md:aspect-[9/16] rounded-[32px] overflow-hidden border transition-all duration-500
             ${isActive
         ? 'border-[#00CBD9]/50 shadow-xl md:shadow-[0_20px_60px_rgba(0,0,0,0.7)]'
         : 'border-white/10 shadow-none'

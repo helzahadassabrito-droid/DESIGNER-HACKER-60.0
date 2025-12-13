@@ -177,6 +177,7 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                         force3D: true,
                         scrollTrigger: {
                             trigger: img2019Ref.current,
+                            scroller: scrollerRef.current, // CRITICAL: Must specify custom scroller
                             start: "top 80%",
                             end: "bottom 20%",
                             scrub: 1,
@@ -226,6 +227,7 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                         force3D: true,
                         scrollTrigger: {
                             trigger: img2025Ref.current,
+                            scroller: scrollerRef.current, // CRITICAL: Must specify custom scroller
                             start: "top 80%",
                             end: "bottom 20%",
                             scrub: 1,
