@@ -188,8 +188,8 @@ export const SectionThirteen: React.FC<SectionThirteenProps> = ({ scrollerRef })
               você será capaz de:
             </span>
           </h2>
-          {/* Divider - Pink Gradient */}
-          <div className="w-full max-w-[200px] md:max-w-[400px] h-1 bg-gradient-to-r from-transparent via-[#FC2C54] to-transparent rounded-full opacity-80 mt-2"></div>
+          {/* Divider - Gold Gradient */}
+          <div className="w-full max-w-[200px] md:max-w-[400px] h-1 bg-gradient-to-r from-transparent via-[#FFD700] to-transparent rounded-full opacity-80 mt-2"></div>
         </div>
 
         {/* 
@@ -201,7 +201,7 @@ export const SectionThirteen: React.FC<SectionThirteenProps> = ({ scrollerRef })
         >
           {SOLUTIONS.map((item, i) => {
             const activeColor = COLORS_MAP[item.color];
-            const borderColor = "#FC2C54"; // CONSTANT PINK BORDER for all cards
+            const borderColor = "#FFD700"; // GOLD BORDER for all cards
 
             return (
               <div
@@ -214,7 +214,7 @@ export const SectionThirteen: React.FC<SectionThirteenProps> = ({ scrollerRef })
                      MOBILE OPTIMIZATION: Hidden on mobile (hidden md:block)
                   */}
                 <div
-                  className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-lg hidden md:block"
+                  className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-lg"
                   style={{ backgroundColor: borderColor }}
                 ></div>
 
@@ -239,7 +239,7 @@ export const SectionThirteen: React.FC<SectionThirteenProps> = ({ scrollerRef })
                          MOBILE OPTIMIZATION: Hidden on mobile (hidden md:block) to prevent continuous heavy painting.
                       */}
                   <div
-                    className="hidden md:block absolute inset-[-200%] animate-[spin_3s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="absolute inset-[-200%] animate-[spin_3s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
                       background: `conic-gradient(from 90deg at 50% 50%, transparent 0%, transparent 50%, ${borderColor} 100%)`
                     }}

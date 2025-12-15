@@ -555,8 +555,8 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
                                 decoding="async"
                             />
                             <h1 className="text-3xl md:text-5xl lg:text-7xl font-black text-white tracking-tight mb-2 font-sans uppercase">
-                                DOMINE O DESIGN <br className="md:hidden" />
-                                EM <span className="bg-gradient-to-r from-primary-main via-primary-light to-primary-dark bg-clip-text text-transparent">MENOS DE 7 DIAS!</span>
+                                DOMINE O DESIGN EM <br className="md:hidden" />
+                                <span className="bg-gradient-to-r from-primary-main via-primary-light to-primary-dark bg-clip-text text-transparent">MENOS DE 7 DIAS!</span>
                             </h1>
                         </div>
 
@@ -742,7 +742,7 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
                             <p className="text-lg md:text-xl lg:text-2xl leading-[1.6] text-white font-sans">
                                 É para solucionar esse problema de uma vez por todas que criei a <span className="text-white font-bold">Design Hack</span>.
                                 Agora você pode dominar a lógica por trás da estética, comandar projetos,
-                                ser reconhecido <span className="bg-gradient-to-br from-[#00CBD9] to-[#AEECF1] bg-clip-text text-transparent font-medium">pela sua inteligência criativa e cobrar 10x mais caro por isso</span>
+                                ser reconhecido <span className="bg-gradient-to-br from-[#00CBD9] to-[#AEECF1] bg-clip-text text-transparent font-medium">pela sua inteligência criativa e cobrar 10x mais caro por isso </span>
                                 — não por sorte, mas por valor percebido.
                             </p>
 
@@ -842,7 +842,7 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
                                                 alt={`Brand ${index}`}
                                                 loading="lazy"
                                                 decoding="async"
-                                                className="brand-logo h-[40px] md:h-[65px] w-auto max-w-[130px] md:max-w-[180px] flex-shrink-0 opacity-65 transition-all duration-600"
+                                                className="brand-logo h-[55px] md:h-[80px] w-auto max-w-[160px] md:max-w-[220px] flex-shrink-0 opacity-65 transition-all duration-600"
                                                 style={{
                                                     filter: 'grayscale(1) invert(1) contrast(3) brightness(2)',
                                                     mixBlendMode: 'screen',
@@ -860,7 +860,7 @@ export const SectionTwo = forwardRef<HTMLDivElement, SectionTwoProps>(({ isActiv
                                                 alt={`Brand ${index}`}
                                                 loading="lazy"
                                                 decoding="async"
-                                                className="brand-logo h-[40px] md:h-[65px] w-auto max-w-[130px] md:max-w-[180px] flex-shrink-0 opacity-65 transition-all duration-600"
+                                                className="brand-logo h-[55px] md:h-[80px] w-auto max-w-[160px] md:max-w-[220px] flex-shrink-0 opacity-65 transition-all duration-600"
                                                 style={{
                                                     filter: 'grayscale(1) invert(1) contrast(3) brightness(2)',
                                                     mixBlendMode: 'screen',

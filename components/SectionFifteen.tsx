@@ -362,7 +362,6 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                                 <div className="relative w-[320px] max-w-[90vw] h-[320px] max-h-[90vw] md:w-[200px] md:h-[200px] rounded-3xl overflow-hidden border-2 border-white/10 shadow-2xl bg-black">
                                     <img ref={img2019Ref} src={ASSETS.PLAN_2019_IMAGE} loading="lazy" decoding="async" alt="2019" className="w-full h-full object-cover" />
                                     <div className="absolute inset-0 bg-black/50"></div>
-                                    <div className="absolute bottom-4 right-4 text-white/50 font-black text-3xl md:text-2xl">2019</div>
                                 </div>
                             </div>
 
@@ -420,7 +419,6 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                                 <div className="relative w-[320px] max-w-[90vw] h-[320px] max-h-[90vw] md:w-[220px] md:h-[220px] rounded-3xl overflow-hidden border-[3px] border-[#00FF94] shadow-[0_0_30px_rgba(0,255,148,0.2)] md:shadow-[0_0_60px_rgba(0,255,148,0.3)] bg-black">
                                     <img ref={img2025Ref} src={ASSETS.PLAN_CURRENT_IMAGE} loading="lazy" decoding="async" alt="Atualmente" className="w-full h-full object-cover" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#00FF94]/40 via-transparent to-transparent mix-blend-overlay"></div>
-                                    <div className="absolute bottom-4 right-4 text-[#00FF94] font-black text-3xl md:text-2xl drop-shadow-md">Atualmente</div>
                                 </div>
                                 {/* Hidden ping on mobile for performance */}
                                 <div className="absolute -inset-4 border border-[#00FF94]/30 rounded-[30px] opacity-0 group-hover:opacity-100 animate-ping pointer-events-none hidden md:block"></div>
@@ -442,7 +440,7 @@ export const SectionFifteen: React.FC<SectionFifteenProps> = ({ scrollerRef }) =
                                 {/* Text 2 */}
                                 <p className="text-gray-300 text-base md:text-base leading-relaxed mb-6 font-sans">
                                     Mas meu intuito é ajudar <br /> o máximo de pessoas. <br />
-                                    Por isso, <span className="text-[#00CBD9] font-bold text-lg md:text-lg">vou liberar 3 planos</span> <br />
+                                    Por isso , <span className="text-[#00CBD9] font-bold text-lg md:text-lg">vou liberar 3 planos</span> <br />
                                     para você decidir qual <br />
                                     é o <span className="italic text-white text-lg md:text-lg">melhor para Você!</span>
                                 </p>
@@ -685,10 +683,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
                     <div className="mt-auto">
                         <button
                             className={`
-                                w-full py-4 rounded-xl font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase transition-all duration-300 relative overflow-hidden
+                                w-full py-4 rounded-xl font-bold uppercase transition-all duration-300 relative overflow-hidden
                                 ${isGold
-                                    ? 'bg-[#FFD700] text-black hover:bg-[#ffe44d] shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_40px_rgba(255,215,0,0.6)]'
-                                    : 'bg-transparent border border-white/20 text-white hover:border-[#00CBD9] hover:text-[#00CBD9] hover:bg-[#00CBD9]/5'
+                                    ? 'text-[12px] md:text-xs tracking-[0.2em] bg-[#FFD700] text-black hover:bg-[#ffe44d] shadow-[0_0_30px_rgba(255,215,0,0.8)] md:shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_40px_rgba(255,215,0,0.6)]'
+                                    : 'text-[10px] md:text-xs tracking-[0.2em] bg-transparent border border-white/20 text-white hover:border-[#00CBD9] hover:text-[#00CBD9] hover:bg-[#00CBD9]/5'
                                 }
                             `}
                         >

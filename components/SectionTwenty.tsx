@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Rocket, Plus, MessageCircle } from 'lucide-react';
+import { MessageCircle as WhatsAppIcon } from 'lucide-react';
 import { scrollToPlans } from '../utils/scroll';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,28 +15,48 @@ interface SectionTwentyProps {
 
 const FAQS = [
   {
-    question: "O curso é para iniciantes?",
-    answer: "Sim! O curso foi desenhado para levar você do zero absoluto até o nível profissional. Abordamos desde os fundamentos até técnicas avançadas."
+    question: "Por que o Design Hack Academy é diferente de outros cursos?",
+    answer: "Porque além de te ensinar ferramentas — te ensina visão. E não só a minha visão, mas a de vários convidados especiais que atuam na linha de frente, na Elite do Mercado Global.\nEnquanto outros cursos só te mostram \"como fazer\", o Design Hack te mostra \"por que fazer\". É um curso de design para quem quer entender o cérebro por trás de qualquer produção.\n\n💡 O design muda quando você entende as pessoas — não só os pixels."
   },
   {
-    question: "Quanto tempo de acesso eu tenho?",
-    answer: "Depende do plano escolhido. No Plano Vitalício, o acesso é para sempre, incluindo todas as atualizações futuras."
+    question: "E se eu não for bom o suficiente. O conteúdo é muito complexo pra mim?",
+    answer: "Não. E todo designer já sentiu isso.\nO Design Hack Academy foi criado para simplificar o design, não complicar.\nCada aula traduz o \"designer difícil\" em pensamento visual direto — sem jargão, sem enrolação.\nVocê vai aprender a pensar como um designer estratégico, não decorar atalhos de software.\n\n💡 Design é clareza, não complexidade."
   },
   {
-    question: "Preciso saber desenhar?",
-    answer: "Não! O método ensina técnicas que não dependem de dom artístico, mas sim de fundamentos de design e uso de ferramentas."
+    question: "Faço 20 a 40 artes por dia e ganho pouco. Isso vai mudar depois que eu fizer as aulas?",
+    answer: "Sim — mas só se você mudar o jeito que pensa sobre design.\nVocê não ganha pouco porque trabalha pouco. Você ganha pouco porque trabalha como todo mundo.\nDesign Hack Academy foi feito para virar essa chave — para te ensinar o porquê por trás da estética, e transformar o que você cria em valor percebido.\n\nEle te ensina o que a rotina nunca ensina: estratégia, posicionamento e visão criativa.\n\n💡 Enquanto todo mundo te treina pra cumprir prazo, o Design Hack te treina pra criar valor. Menos cliques, mais estratégia."
   },
   {
-    question: "Tem certificado?",
-    answer: "Sim, ao concluir todas as aulas você recebe um certificado oficial de conclusão válido em todo território nacional."
+    question: "Design Hack Academy é caro? Dá muito trabalho?",
+    answer: "Caro comparado com o que? Não custa nem 0,5% do que eu já gastei para estar te ensinando todos os conteúdos.\nCaro é continuar preso no ciclo de agência ou qualquer outro lugar que você não tenha tempo nem reconhecimento.\nDesign Hack Academy custa menos que um açaí por mês — e te entrega o conteúdo para reposicionar sua carreira inteira.\nVocê não está comprando um curso. Está comprando clareza, propósito e tempo (que nos dias de hoje é o nosso maior ativo e o melhor artigo de luxo).\n\nE sim, da trabalho — mas o trabalho certo. Inteligente. Cada módulo é pensado para gerar resultado rápido.\n\n💡 Pagar barato pelo aprendizado errado é o investimento mais caro que existe.\n\n💡 Trabalho que transforma não cansa, liberta."
   },
   {
-    question: "Como funciona o suporte?",
-    answer: "Você terá acesso à nossa comunidade exclusiva onde eu e minha equipe tiramos dúvidas diariamente."
+    question: "Tenho bloqueio criativo. A academia Design Hack vai me ajudar?",
+    answer: "Ajuda — e muito.\nO bloqueio criativo não é falta de ideia, é excesso de ruído.\nAqui, te ensino a limpar esse ruído e enxergar o design como sistema — um método visual que desperta clareza e autoconfiança.\n\n💡 Criatividade não nasce do caos. Nasce da clareza."
   },
   {
-    question: "E se eu não gostar?",
-    answer: "Você tem 7 dias de garantia incondicional. Se não gostar, devolvemos 100% do seu dinheiro. Risco zero."
+    question: "Quero otimizar meu tempo de criação. Academia Design Hack vai me ajudar?",
+    answer: "Exatamente para isso que existe.\nVocê vai aprender a pensar antes de clicar.\nQuando entende o raciocínio visual e psicológico por trás do design, cria com muito mais velocidade e direção.\n\n💡 Você não precisa criar mais rápido. Precisa criar com propósito."
+  },
+  {
+    question: "E se eu já for experiente, ainda faz sentido?",
+    answer: "Mais do que nunca.\nO curso é feito para quebrar paradigmas — não importa seu nível técnico.\nDesign Hack é para quem quer evoluir da execução para a direção, da estética para a estratégia.\nÉ o tipo de atualização mental que nenhum software ensina.\n\n💡 Quem já sabe criar precisa agora aprender a pensar."
+  },
+  {
+    question: "Em quanto tempo eu começo a ter resultados?",
+    answer: "Depende do seu ritmo, mas a maioria dos alunos começa a ver resultado já nas primeiras semanas.\nPorque o curso foi criado para aplicar o aprendizado na prática, dentro dos projetos que você já faz. Independente da área que você atua.\nO progresso é imediato — o impacto é permanente.\n\n💡 Não é sobre terminar o curso. É sobre começar a pensar diferente."
+  },
+  {
+    question: "Todas as aulas dos módulos estão liberadas?",
+    answer: "Sim.\nAo entrar no Design Hack Academy, você tem acesso imediato a todos os módulos — sem bloqueios, sem segredos.\nIsso te permite seguir o seu próprio ritmo, revisitar aulas e aplicar o conteúdo conforme evolui.\n\n💡 Liberdade criativa começa com liberdade de aprendizado."
+  },
+  {
+    question: "Como faço para acessar a academia Design Hack?",
+    answer: "Simples.\nAssim que escolher o plano que mais faz sentido pra você, você confirma sua inscrição e após o pagamento (100% seguro) você recebe um e-mail com o link de acesso direto à plataforma.\nO Design Hack Academy é 100% online, pode ser acessado pelo celular, tablet ou computador — de onde e quando quiser.\nSeu progresso fica salvo, e você pode assistir quantas vezes precisar.\n\n💡 Design sem pressa, no seu tempo, no seu ritmo."
+  },
+  {
+    question: "Design Hack Academy tem suporte?",
+    answer: "Tem, e é direto.\nVocê pode tirar dúvidas dentro da própria plataforma e dentro do grupo exclusivo Design Hack que permite trocas diretas comigo e com outros alunos — pra tirar qualquer dúvida, compartilhar projetos, feedbacks e evoluções reais.\n\nO suporte do Design Hack é feito pra acelerar o seu aprendizado, não te enrolar.\n\n💡 Aqui, suporte não é resposta automática. É acompanhamento pra te fazer evoluir de verdade."
   }
 ];
 
@@ -188,12 +209,30 @@ export const SectionTwenty: React.FC<SectionTwentyProps> = ({ scrollerRef }) => 
         </div>
 
         {/* CTA */}
-        <div ref={ctaRef} className="mt-12 md:mt-16 w-full flex justify-center">
+        <div ref={ctaRef} className="mt-12 md:mt-16 w-full flex flex-col items-center gap-6">
           <button onClick={scrollToPlans} className="group relative overflow-hidden bg-gradient-to-br from-[#00CBD9] to-[#AEECF1] text-black font-extrabold text-sm md:text-lg px-6 py-4 md:px-8 md:py-5 rounded-2xl border-2 border-[#00CBD9]/40 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:scale-105 hover:shadow-[0_0_50px_rgba(0,203,217,0.6)] transition-all duration-300 uppercase tracking-wider font-sans flex items-center justify-center gap-2 md:gap-3 whitespace-nowrap w-full md:w-auto">
             <div className="absolute inset-0 bg-white/40 w-[200%] animate-shimmer-sweep opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <Rocket className="w-5 h-5 md:w-6 md:h-6" />
             <span className="relative z-10">QUERO SUBIR DE NÍVEL AGORA</span>
           </button>
+
+          {/* WhatsApp Contact Section */}
+          <div className="flex flex-col items-center gap-4 w-full">
+            <p className="text-white text-base md:text-lg font-medium">Ainda com Dúvida?</p>
+
+            <a
+              href="https://wa.me/5511999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white font-bold text-sm md:text-base px-6 py-4 md:px-8 md:py-4 rounded-2xl shadow-[0_0_30px_rgba(37,211,102,0.4)] hover:shadow-[0_0_60px_rgba(37,211,102,0.8)] transition-all duration-300 uppercase tracking-wide font-sans flex items-center justify-center gap-3 w-full md:w-auto hover:scale-105"
+            >
+              {/* Animated glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+              <WhatsAppIcon className="w-5 h-5 md:w-6 md:h-6 relative z-10" />
+              <span className="relative z-10">ENTRE EM CONTATO COMIGO</span>
+            </a>
+          </div>
         </div>
 
       </div>

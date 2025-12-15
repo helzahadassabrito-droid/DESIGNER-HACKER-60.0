@@ -174,13 +174,13 @@ export const SectionTwentyOne: React.FC<SectionTwentyOneProps> = ({ scrollerRef 
             Dessa forma, eu <strong className="text-black underline decoration-[#00CBD9] decoration-2 underline-offset-4">Anderson Ramon Meisterlin</strong> assumi a responsabilidade e a missão de potencializar a sua carreira no universo do Design.
           </p>
 
-          {/* MOBILE OPTIMIZATION: Removed backdrop-blur, used solid opacity color instead */}
-          <div className="p-6 md:p-8 bg-white/90 md:bg-white/60 md:backdrop-blur-sm border border-black/5 rounded-2xl shadow-sm">
-            <p className="text-lg md:text-xl text-black font-bold mb-0">
+          {/* MOBILE OPTIMIZATION: Removed background - only image background visible */}
+          <div className="p-6 md:p-8 border-0 rounded-2xl">
+            <p className="text-lg md:text-xl text-black font-bold mb-0 drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
               Esta academia é perfeita para designers aspirantes e profissionais.
             </p>
-            <p className="mt-4 text-sm md:text-base text-gray-600">
-              Todos que desejam desenvolver novas habilidades, aprender atalhos, se valorizar no mercado e consequentemente <span className="text-[#009CA8] text-2xl font-black block mt-2 md:inline md:mt-0">ganhar muito bem para isso!</span>
+            <p className="mt-4 text-sm md:text-base text-gray-800 drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">
+              Todos que desejam desenvolver novas habilidades, aprender atalhos, se valorizar no mercado e consequentemente <span className="text-[#009CA8] text-2xl font-black block mt-2 md:inline md:mt-0 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)]">ganhar muito bem para isso!</span>
             </p>
           </div>
 

@@ -15,13 +15,13 @@ interface SectionModulesListProps {
 // Detailed Content for the Modules
 const MODULE_DETAILS = [
   {
-    title: "01. BOAS VINDAS – ⚡ Start Hack",
+    title: "01. BOAS VINDAS – Start Hack",
     lessons: [
       "BOAS VINDAS – o Play Inicial para Subir de Nível"
     ]
   },
   {
-    title: "02. DESIGN HACK PRO – 🎓 Formação Completa o conteúdo de +150K",
+    title: "02. DESIGN HACK PRO – Formação Completa o conteúdo de +150K",
     lessons: [
       "INTRODUÇÃO AO DESIGN",
       "História da Arte e Design",
@@ -51,7 +51,7 @@ const MODULE_DETAILS = [
     ]
   },
   {
-    title: "03. WORKFLOW – 🚀 Como Eu Trabalho + Ferramentas Secretas",
+    title: "03. WORKFLOW – Como Eu Trabalho + Ferramentas Secretas",
     lessons: [
       "INTRODUÇÃO",
       "PESQUISA E DEFINIÇÃO",
@@ -72,28 +72,28 @@ const MODULE_DETAILS = [
     ]
   },
   {
-    title: "04. INTELIGÊNCIA ARTIFICIAL – 🤖 O Que Realmente Funciona",
+    title: "04. INTELIGÊNCIA ARTIFICIAL – O Que Realmente Funciona",
     lessons: [
       "I.A. QUE FUNCIONA – Parte I",
       "I.A. QUE FUNCIONA – Parte II"
     ]
   },
   {
-    title: "05. PORTFÓLIO IMBATÍVEL – 🔥 Irresistível e Lucrativo",
+    title: "05. PORTFÓLIO IMBATÍVEL – Irresistível e Lucrativo",
     lessons: [
       "PORTFÓLIO IMBATÍVEL – Parte I",
       "PORTFÓLIO IMBATÍVEL – Parte II – Na Prática"
     ]
   },
   {
-    title: "06. CORPO E MENTE – 💡 Produtividade Extrema",
+    title: "06. CORPO E MENTE – Produtividade Extrema",
     lessons: [
       "NOSSO CORPO É O NOSSO TEMPLO",
       "PRODUTIVIDADE E PERFORMANCE"
     ]
   },
   {
-    title: "07. EMPREENDEDORISMO – 🚀 Passo a Passo da Ideia ao Lucro",
+    title: "07. EMPREENDEDORISMO – Passo a Passo da Ideia ao Lucro",
     lessons: [
       "EMPREENDEDORISMO – A Virada de Chave",
       "MARCA PESSOAL – Como Fortalecer a Sua e Construir Autoridade",
@@ -113,27 +113,32 @@ const MODULE_DETAILS = [
     ]
   },
   {
-    title: "08. ESPIRITUALIDADE – ✨ A Força Invisível",
+    title: "08. ESPIRITUALIDADE – A Força Invisível",
     lessons: [
       "O PODER DA FÉ"
     ]
   },
   {
-    title: "09. BÔNUS ACELERADOR",
+    title: "09. 📌 BÔNUS – 📌 Conteúdo Extra Acelerador",
     lessons: [
-      "Aula 01: Pack de Assets Premium",
-      "Aula 02: Masterclass com Convidados",
-      "Aula 03: Gravações de Lives Exclusivas",
-      "Aula 04: Templates de Contrato e Proposta"
+      "Como Baixar e Instalar Softwares de Design - PHOTOSHOP, ILLUSTRATOR, RHINOCEROS",
+      "ESTEVAN HANSEN – Inteligência de Mercado Aplicada ao Design",
+      "ROBERTO DOS SANTOS – Design e Carreira",
+      "BRUNO FEITOSA – Design na Prática",
+      "CIRO RAMBOR – Design e Liderança Criativa",
+      "EDUARDO BRAUN – Criatividade, Design e Propósito",
+      "WAGNER METZ – Corpo, Mente e Performance",
+      "CARLOS PICAUÍ – Design 3D",
+      "VIVIAN LAUBE – Soft Skills e Comunicação Não Violenta que Constroem Designers de Sucesso"
     ]
   },
   {
-    title: "10. NEXT LEVEL",
+    title: "10. GRUPO VIP - Comunidade Exclusiva Design Hack",
     lessons: [
-      "Aula 01: Plano de Carreira",
-      "Aula 02: Mentoria de Encerramento",
-      "Aula 03: Certificação Avançada",
-      "Aula 04: O Próximo Passo"
+      "Acesso à Comunidade Exclusiva",
+      "Networking com Designers Profissionais",
+      "Suporte e Mentoria da Comunidade",
+      "Oportunidades de Colaboração"
     ]
   }
 ];
@@ -294,11 +299,22 @@ export const SectionModulesList: React.FC<SectionModulesListProps> = ({ scroller
           })}
         </div>
 
+
+
         {/* Stats Section */}
         <div ref={statsRef} className="flex flex-col md:flex-row gap-4 md:gap-8 mt-12 md:mt-16 w-full justify-center">
           <StatPill icon={<Package size={20} />} text="+ 10 CURSOS EM 1" />
           <StatPill icon={<MonitorPlay size={20} />} text="+ 70 AULAS" />
           <StatPill icon={<PlayCircle size={20} />} text="+ 100 HORAS" />
+        </div>
+
+        {/* Golden Yellow Motivational Card - Below Stats Section */}
+        <div className="mt-8 md:mt-10 w-full flex justify-center">
+          <div className="w-full bg-gradient-to-br from-[#3a2d00] via-[#2a2000] to-[#1a1500] border-2 border-[#FFD700] rounded-2xl p-6 md:p-8 shadow-[0_0_40px_rgba(255,215,0,0.3)]">
+            <h3 className="text-[#FFD700] font-black text-2xl md:text-4xl text-center uppercase tracking-wider leading-tight" style={{ textShadow: '0 0 20px rgba(255,215,0,0.6), 0 2px 4px rgba(0,0,0,0.8)' }}>
+              Em 7 dias você vai estar em outro nível!
+            </h3>
+          </div>
         </div>
 
         {/* New CTA Button */}
@@ -309,6 +325,8 @@ export const SectionModulesList: React.FC<SectionModulesListProps> = ({ scroller
             <span className="relative z-10">QUERO SUBIR DE NÍVEL AGORA</span>
           </button>
         </div>
+
+
 
       </div>
     </section>

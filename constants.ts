@@ -31,7 +31,8 @@ export const ASSETS = {
     "/Módulo 6-compressed.webp",
     "/Módulo 7-compressed.webp",
     "/Módulo 8-compressed.webp",
-    "/Módulo 9-compressed.webp"
+    "/Módulo 9-compressed.webp",
+    "/Módulo-10-compressed.avif"
   ],
   CERTIFICATES: {
     FRONT: "https://i.postimg.cc/Pq030y0g/cert-front.jpg", // Placeholder - replace with actual image
@@ -88,8 +89,8 @@ export const MODULES = [
   { title: "06. Corpo e Mente", image: ASSETS.MODULE_IMAGES[5] },
   { title: "07. Empreendedorismo", image: ASSETS.MODULE_IMAGES[6] },
   { title: "08. Espiritualidade", image: ASSETS.MODULE_IMAGES[7] },
-  { title: "09. Bônus Acelerador", image: ASSETS.MODULE_IMAGES[8] },
-  { title: "10. Next Level", image: ASSETS.MODULE_IMAGES[8] }
+  { title: "09. 📌 BÔNUS – 📌 Conteúdo Extra Acelerador", image: ASSETS.MODULE_IMAGES[8] },
+  { title: "10. GRUPO VIP - Comunidade Exclusiva Design Hack", image: ASSETS.MODULE_IMAGES[9] }
 ];
 
 export const GUESTS = [

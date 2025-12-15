@@ -16,13 +16,13 @@ interface SectionSevenProps {
 // Detailed Content for the Modules
 const MODULE_DETAILS = [
     {
-        title: "01. BOAS VINDAS – ⚡ Start Hack",
+        title: "01. BOAS VINDAS – Start Hack",
         lessons: [
             "BOAS VINDAS – o Play Inicial para Subir de Nível"
         ]
     },
     {
-        title: "02. DESIGN HACK PRO – 🎓 Formação Completa o conteúdo de +150K",
+        title: "02. DESIGN HACK PRO – Formação Completa o conteúdo de +150K",
         lessons: [
             "INTRODUÇÃO AO DESIGN",
             "História da Arte e Design",
@@ -52,7 +52,7 @@ const MODULE_DETAILS = [
         ]
     },
     {
-        title: "03. WORKFLOW – 🚀 Como Eu Trabalho + Ferramentas Secretas",
+        title: "03. WORKFLOW – Como Eu Trabalho + Ferramentas Secretas",
         lessons: [
             "INTRODUÇÃO",
             "PESQUISA E DEFINIÇÃO",
@@ -73,28 +73,28 @@ const MODULE_DETAILS = [
         ]
     },
     {
-        title: "04. INTELIGÊNCIA ARTIFICIAL – 🤖 O Que Realmente Funciona",
+        title: "04. INTELIGÊNCIA ARTIFICIAL – O Que Realmente Funciona",
         lessons: [
             "I.A. QUE FUNCIONA – Parte I",
             "I.A. QUE FUNCIONA – Parte II"
         ]
     },
     {
-        title: "05. PORTFÓLIO IMBATÍVEL – 🔥 Irresistível e Lucrativo",
+        title: "05. PORTFÓLIO IMBATÍVEL – Irresistível e Lucrativo",
         lessons: [
             "PORTFÓLIO IMBATÍVEL – Parte I",
             "PORTFÓLIO IMBATÍVEL – Parte II – Na Prática"
         ]
     },
     {
-        title: "06. CORPO E MENTE – 💡 Produtividade Extrema",
+        title: "06. CORPO E MENTE – Produtividade Extrema",
         lessons: [
             "NOSSO CORPO É O NOSSO TEMPLO",
             "PRODUTIVIDADE E PERFORMANCE"
         ]
     },
     {
-        title: "07. EMPREENDEDORISMO – 🚀 Passo a Passo da Ideia ao Lucro",
+        title: "07. EMPREENDEDORISMO – Passo a Passo da Ideia ao Lucro",
         lessons: [
             "EMPREENDEDORISMO – A Virada de Chave",
             "MARCA PESSOAL – Como Fortalecer a Sua e Construir Autoridade",
@@ -114,27 +114,32 @@ const MODULE_DETAILS = [
         ]
     },
     {
-        title: "08. ESPIRITUALIDADE – ✨ A Força Invisível",
+        title: "08. ESPIRITUALIDADE – A Força Invisível",
         lessons: [
             "O PODER DA FÉ"
         ]
     },
     {
-        title: "09. BÔNUS ACELERADOR",
+        title: "09. 📌 BÔNUS – 📌 Conteúdo Extra Acelerador",
         lessons: [
-            "Aula 01: Pack de Assets Premium",
-            "Aula 02: Masterclass com Convidados",
-            "Aula 03: Gravações de Lives Exclusivas",
-            "Aula 04: Templates de Contrato e Proposta"
+            "Como Baixar e Instalar Softwares de Design - PHOTOSHOP, ILLUSTRATOR, RHINOCEROS",
+            "ESTEVAN HANSEN – Inteligência de Mercado Aplicada ao Design",
+            "ROBERTO DOS SANTOS – Design e Carreira",
+            "BRUNO FEITOSA – Design na Prática",
+            "CIRO RAMBOR – Design e Liderança Criativa",
+            "EDUARDO BRAUN – Criatividade, Design e Propósito",
+            "WAGNER METZ – Corpo, Mente e Performance",
+            "CARLOS PICAUÍ – Design 3D",
+            "VIVIAN LAUBE – Soft Skills e Comunicação Não Violenta que Constroem Designers de Sucesso"
         ]
     },
     {
-        title: "10. NEXT LEVEL",
+        title: "10. GRUPO VIP - Comunidade Exclusiva Design Hack",
         lessons: [
-            "Aula 01: Plano de Carreira",
-            "Aula 02: Mentoria de Encerramento",
-            "Aula 03: Certificação Avançada",
-            "Aula 04: O Próximo Passo"
+            "Acesso à Comunidade Exclusiva",
+            "Networking com Designers Profissionais",
+            "Suporte e Mentoria da Comunidade",
+            "Oportunidades de Colaboração"
         ]
     }
 ];
@@ -427,8 +432,8 @@ export const SectionSeven: React.FC<SectionSevenProps> = ({ scrollerRef }) => {
                         key={i}
                         onClick={() => goToSlide(i)}
                         className={`h-1.5 md:h-2 rounded-full transition-all duration-300 ${i === activeIndex
-                                ? 'w-8 md:w-12 bg-[#00CBD9] md:shadow-[0_0_8px_rgba(0,203,217,0.5)]'
-                                : 'w-2 md:w-3 bg-white/20 hover:bg-white/40'
+                            ? 'w-8 md:w-12 bg-[#00CBD9] md:shadow-[0_0_8px_rgba(0,203,217,0.5)]'
+                            : 'w-2 md:w-3 bg-white/20 hover:bg-white/40'
                             }`}
                     />
                 ))}
@@ -507,6 +512,16 @@ export const SectionSeven: React.FC<SectionSevenProps> = ({ scrollerRef }) => {
                     <StatPill icon={<Package size={18} />} text="+ 10 CURSOS EM 1" />
                     <StatPill icon={<MonitorPlay size={18} />} text="+ 70 AULAS" />
                     <StatPill icon={<PlayCircle size={18} />} text="+ 100 HORAS" />
+                </div>
+
+                {/* Golden Motivational Card */}
+                <div className="mt-8 md:mt-10 w-full flex justify-center">
+                    <div className="w-full border border-[#D4AF37]/50 rounded-xl p-5 md:p-6 bg-gradient-to-r from-[#B8860B]/10 via-[#FFD700]/15 to-[#B8860B]/10">
+                        <p className="bg-gradient-to-r from-[#B8860B] via-[#FFD700] to-[#D4AF37] bg-clip-text text-transparent font-bold text-lg md:text-2xl text-center tracking-wide leading-relaxed">
+                            <span className="md:hidden">Em 7 dias você vai estar<br />em outro nível!</span>
+                            <span className="hidden md:inline">Em 7 dias você vai estar em outro nível!</span>
+                        </p>
+                    </div>
                 </div>
 
                 {/* CTA Button */}

@@ -133,7 +133,7 @@ export const SectionOne: React.FC = () => {
 
       <div className="absolute top-[8%] md:top-[12%] left-0 w-full z-20 flex justify-center px-4">
         <p ref={topTextRef} className="text-gray-200 text-sm md:text-lg tracking-[0.2em] uppercase font-sans opacity-0 font-medium drop-shadow-md text-center">
-          Aprenda em 07 dias
+          Em 7 dias você vai <br className="md:hidden" />está em outro nível
         </p>
       </div>
 

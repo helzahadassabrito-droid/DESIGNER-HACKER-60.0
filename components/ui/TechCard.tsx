@@ -7,19 +7,19 @@ interface TechCardProps {
   hoverEffect?: boolean;
 }
 
-export const TechCard: React.FC<TechCardProps> = ({ 
-  children, 
-  className = "", 
-  hoverEffect = true 
+export const TechCard: React.FC<TechCardProps> = ({
+  children,
+  className = "",
+  hoverEffect = true
 }) => {
   return (
-    <div 
+    <div
       className={`
         group relative rounded-2xl p-[1px] 
-        bg-gradient-to-b from-[#00CBD9]/30 to-transparent 
-        hover:from-[#00CBD9] hover:to-[#00CBD9]/10
+        bg-gradient-to-b from-[#FC2C54]/30 to-transparent 
+        hover:from-[#FC2C54] hover:to-[#FC2C54]/10
         transition-all duration-300 ease-out
-        ${hoverEffect ? 'md:hover:-translate-y-[5px] md:hover:shadow-[0_0_30px_rgba(0,203,217,0.15)]' : ''}
+        ${hoverEffect ? 'md:hover:-translate-y-[5px] md:hover:shadow-[0_0_30px_rgba(252,44,84,0.15)]' : ''}
         ${className}
       `}
     >
@@ -27,16 +27,17 @@ export const TechCard: React.FC<TechCardProps> = ({
       {/* 
           MOBILE OPTIMIZATION:
           - Replaced 'backdrop-blur-md' with 'md:backdrop-blur-md'.
-          - Added 'bg-[#141414]' for solid background on mobile (faster).
+          - Added solid background on mobile (faster).
+          - Changed to dark blue background (#05121d)
       */}
-      <div className="relative h-full w-full rounded-[15px] bg-[#141414] md:bg-[#141414]/80 md:backdrop-blur-md overflow-hidden">
-        
-        {/* Subtle Top Inner Highlight */}
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-50" />
-        
+      <div className="relative h-full w-full rounded-[15px] bg-[#05121d] md:bg-[#05121d]/90 md:backdrop-blur-md overflow-hidden">
+
+        {/* Subtle Top Inner Highlight - Pink tint */}
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#FC2C54]/30 to-transparent opacity-50" />
+
         {/* Content */}
         <div className="relative z-10 h-full">
-            {children}
+          {children}
         </div>
 
         {/* Optional: subtle noise or texture could be added here if needed in the future */}

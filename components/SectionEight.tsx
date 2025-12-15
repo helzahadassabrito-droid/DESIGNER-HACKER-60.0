@@ -123,12 +123,7 @@ export const SectionEight: React.FC<SectionEightProps> = ({ scrollerRef }) => {
         {/* Header Section */}
         <div ref={titleRef} className="text-center mb-8 md:mb-24 opacity-0 flex flex-col items-center">
 
-          {/* UPDATED: "No Módulo 09" using StatPill Design */}
-          <div className="flex items-center gap-3 px-8 py-4 rounded-2xl border border-[#00CBD9] bg-[#05121d] md:shadow-[0_0_15px_rgba(0,203,217,0.15)] mb-8">
-            <span className="text-white font-bold text-lg font-sans tracking-wide uppercase">
-              No Módulo 09
-            </span>
-          </div>
+
 
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight font-sans">
             Regularmente teremos <br className="hidden md:block" />
@@ -157,13 +152,9 @@ export const SectionEight: React.FC<SectionEightProps> = ({ scrollerRef }) => {
             </div>
           </div>
 
-          <div className="flex md:hidden items-center justify-center gap-2 mt-4 text-white/30 text-[10px] uppercase tracking-widest">
-            <MousePointer2 size={12} /> Arraste para explorar
-          </div>
 
-          <div className="hidden md:flex items-center justify-center gap-2 mt-8 text-white/30 text-xs uppercase tracking-widest">
-            <PauseCircle size={14} /> Passe o mouse para pausar • Clique para ampliar
-          </div>
+
+
         </div>
 
         {/* CTA Button */}
